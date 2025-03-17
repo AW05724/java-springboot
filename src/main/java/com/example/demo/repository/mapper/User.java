@@ -3,13 +3,13 @@ package com.example.demo.repository.mapper;
 import java.time.LocalDateTime;
 
 public class User {
-    private Integer id;
+    private int id;
     private String mail;
     private String password;
     private String roles;
     private LocalDateTime created;
     private LocalDateTime lastLogined;
-    private Boolean enabled;
+    private boolean enabled;
 
     // ゲッター、セッター、コンストラクタなどは省略
     // Lombokを使用する場合は、@Dataアノテーションなどを利用する
@@ -17,7 +17,7 @@ public class User {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -61,11 +61,11 @@ public class User {
         this.lastLogined = lastLogined;
     }
 
-    public Boolean getEnabled() {
+    public boolean getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(Boolean enabled) {
+    public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
 }

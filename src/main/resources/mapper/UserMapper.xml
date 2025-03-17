@@ -13,11 +13,11 @@
     </resultMap>
 
     <select id="findAll" resultMap="UserResultMap">
-        SELECT * FROM `user`
+        SELECT id,mail,password,roles,created,last_logined,enabled FROM `user`
     </select>
 
     <select id="findById" parameterType="Integer" resultMap="UserResultMap">
-        SELECT * FROM `user` WHERE id = #{id}
+        SELECT id,mail,password,roles,created,last_logined,enabled FROM `user` WHERE id = #{id}
     </select>
 
 </mapper>

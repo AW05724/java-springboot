@@ -6,5 +6,5 @@ import java.util.List;
 @Mapper
 public interface UserMapper {
     List<User> findAll();
-    User findById(Integer id);
+    User findById(int id);
 }

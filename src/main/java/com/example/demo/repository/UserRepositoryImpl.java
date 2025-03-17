@@ -14,12 +14,12 @@ public class UserRepositoryImpl implements UserRepository {
     @Autowired
     private UserMapper userMapper;
 
-    //@Override
+
     public List<User> findAll() {
         return userMapper.findAll();
     }
 
-    //@Override
+
     public User findById(Integer id) {
         return userMapper.findById(id);
     }

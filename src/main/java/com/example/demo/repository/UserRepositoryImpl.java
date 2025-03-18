@@ -23,4 +23,12 @@ public class UserRepositoryImpl implements UserRepository {
     public User findById(Integer id) {
         return userMapper.findById(id);
     }
+
+    public void update(Integer id, User user) {
+        userMapper.update(id, user);
+    }
+
+    public void insert(User user) {
+        userMapper.insert(user);
+    }
 }

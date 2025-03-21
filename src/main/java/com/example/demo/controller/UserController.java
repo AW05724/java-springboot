@@ -36,13 +36,13 @@ public class UserController {
             @RequestHeader("mail") String mail,
             @RequestHeader("password") String password,
             @RequestHeader("roles") String roles,
-            @RequestHeader("enabled") boolean enabled
+            @RequestHeader("enabled") String enabled
     ) {
         User user = new User();
         user.setMail(mail);
         user.setPassword(password);
         user.setRoles(roles);
-        user.setEnabled(enabled);
+        user.setEnabled(Boolean.parseBoolean(enabled));
         user.setLastLogined(LocalDateTime.now());
         userRepository.update(id, user);
         return "User updated successfully";
@@ -53,13 +53,13 @@ public class UserController {
             @RequestHeader("mail") String mail,
             @RequestHeader("password") String password,
             @RequestHeader("roles") String roles,
-            @RequestHeader("enabled") boolean enabled
+            @RequestHeader("enabled") String enabled
     ) {
         User user = new User();
         user.setMail(mail);
         user.setPassword(password);
         user.setRoles(roles);
-        user.setEnabled(enabled);
+        user.setEnabled(Boolean.parseBoolean(enabled));
         user.setCreated(LocalDateTime.now());
         userRepository.insert(user);
         return "User created successfully";

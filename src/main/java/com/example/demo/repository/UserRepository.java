@@ -8,4 +8,8 @@ public interface UserRepository {
     List<User> findAll();
 
     User findById(Integer id);
+
+    void update(Integer id,User user);
+
+    void insert(User user);
 }

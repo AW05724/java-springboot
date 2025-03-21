@@ -2,6 +2,9 @@ package com.example.demo.repository.mapper;
 
 import java.time.LocalDateTime;
 
+import lombok.Data;
+
+@Data
 public class User {
     private int id;
     private String mail;
@@ -11,8 +14,6 @@ public class User {
     private LocalDateTime lastLogined;
     private boolean enabled;
 
-    // ゲッター、セッター、コンストラクタなどは省略
-    // Lombokを使用する場合は、@Dataアノテーションなどを利用する
     public Integer getId() {
         return id;
     }

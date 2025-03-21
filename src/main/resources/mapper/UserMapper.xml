@@ -20,4 +20,19 @@
         SELECT id,mail,password,roles,created,last_logined,enabled FROM `user` WHERE id = #{id}
     </select>
 
+    <update id = "update" parameterType="com.example.demo.repository.mapper.User">
+        UPDATE `user`
+        SET mail = #{user.mail},
+            password = #{user.password},
+            roles = #{user.roles},
+            last_logined = #{user.lastLogined},
+            enabled = #{user.enabled}
+        WHERE id = #{id}
+    </update>
+
+    <insert id = "insert" parameterType = "com.example.demo.repository.mapper.User">
+        INSERT INTO `user`(mail,password,roles,created,last_logined,enabled)
+        VALUES (#{user.mail},#{user.password},#{user.roles},#{user.created},#{user.lastLogined},#{user.enabled})
+    </insert>
+
 </mapper>

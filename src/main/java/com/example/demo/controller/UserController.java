@@ -63,6 +63,7 @@ public class UserController {
                 .roles(roles)
                 .enabled(enabled)
                 .created(LocalDateTime.now())
+                .lastLogined(LocalDateTime.now())
                 .build();
         userRepository.insert(user);
         return ResponseEntity.ok("User created successfully");

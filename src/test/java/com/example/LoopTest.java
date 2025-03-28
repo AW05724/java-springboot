@@ -17,7 +17,7 @@ public class LoopTest {
     }
     }
     
-
+  //0326課題
     @Test
     public void mondai1(){
       for (int i = 0; i <= 5; i++){
@@ -51,4 +51,46 @@ public class LoopTest {
         System.out.println();
       }
     }
+
+  //0326課題
+  @Test
+  public void mondai4(){
+    for(int i =0; i< 5; i++){
+      for (int j=0; j<5; j++){
+        if (i==j){
+          System.out.print("* ");
+        } else {
+          System.out.print("  ");
+        }
+      }
+      System.out.println();
+    }
+  }
+  @Test
+  public void mondai5(){
+    for(int i =0; i< 8; i++){
+      for (int j=0; j<4; j++){
+        if (i % 2 != 0){
+          System.out.print("  *");
+        } else {
+          System.out.print("*  ");
+        }
+      }
+      System.out.println();
+    }
+  }
+
+  @Test
+  public void mondai6(){
+    for(int i =0; i< 5; i++){
+      for (int j=0; j<5; j++){
+        if (i == 5/2 | j == 5/2){
+          System.out.print("* ");
+        } else {
+          System.out.print("  ");
+        }
+      }
+      System.out.println();
+    }
+  }
 }

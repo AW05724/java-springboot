@@ -15,7 +15,7 @@ public class ControllerExceptionHandler {
 
     @ExceptionHandler({ Exception.class })
     public ResponseEntity<Errors> unhandledException(Exception ex) {
-        log.error("unhandled Exception:"+ ex.getMessage(), ex);
+        log.error("unhandled Exception:" + ex.getMessage(), ex);
         return ResponseEntity
         .status(HttpStatus.INTERNAL_SERVER_ERROR)
         .body(Errors.INTERNAL_SERVER_ERROR);

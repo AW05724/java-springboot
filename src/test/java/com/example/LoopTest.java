@@ -139,5 +139,100 @@ public class LoopTest {
     }
   }
 
-}
+  //0328課題
+  @Test
+  public void mondai10() {
+    int rows = 5;
+    int cols = 5;
+    int num = 1;
 
+    for (int i = 0; i<rows; i++){
+      for (int j = 0; j<cols; j++){
+        System.out.print(num + " ");
+        num++;
+      }
+      System.out.println();
+    }
+  }
+
+  @Test
+  public void mondai11() {
+    int rows = 5;
+    int cols = 5;
+    int num = 1;
+    
+    for (int i = 0; i<rows; i++){
+      for (int j = 0; j<cols; j++){
+        if (num<10){
+          System.out.print("  "+num);
+          num++;
+        }else{
+          System.out.print(" "+num);
+          num++;
+        }
+      }
+      System.out.println();
+    }
+  }
+
+  @Test
+  public void mondai12() {
+    int rows = 5;
+    int cols = 5;
+
+    for (int i = 1; i<=rows; i++){
+      for (int j = 1; j<=cols; j++){
+        int num =i*j;
+        if (num<10){
+          System.out.print("  "+num);
+        }else{
+          System.out.print(" "+num);
+        }
+      }
+      System.out.println();
+    }
+  }
+
+  //0331課題
+  @Test
+  public void mondai13() {
+    int rows = 4;
+    int cols = 5;
+    int startNum = 10;
+
+    for (int i = 0; i < rows; i++) {
+      int currentNum = startNum;
+      for (int j = 0; j < cols; j++) {
+        System.out.print(currentNum + " ");
+        currentNum++;
+      }
+      System.out.println();
+      startNum += 3;
+    }
+  }
+
+  @Test
+  public void mondai14(){
+    int rows = 3;
+    int cols = 4;
+    int[] arr = new int[rows*cols];
+    
+    arr[0] = 0;
+    arr[1] = 1;
+    for (int i = 2; i < arr.length; i++) {
+      arr[i] = arr[i - 1] + arr[i - 2];
+    }
+
+    for (int i= 0; i<rows; i++){
+      for(int j=0; j<cols; j++){
+        int num = arr[i * cols + j];
+        if(num<10){
+          System.out.print("  "+num);
+        }else {
+          System.out.print(" "+num);
+        }
+      }
+      System.out.println();
+    }
+  }
+}

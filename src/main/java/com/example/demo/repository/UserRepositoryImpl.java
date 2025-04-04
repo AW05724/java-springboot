@@ -1,6 +1,7 @@
 package com.example.demo.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.repository.mapper.User;
@@ -16,19 +17,37 @@ public class UserRepositoryImpl implements UserRepository {
 
 
     public List<User> findAll() {
-        return userMapper.findAll();
+        try {
+            return userMapper.findAll();
+        } catch (DataAccessException e){
+            System.err.println("findAll error:" + e.getMessage());
+            throw new RuntimeException("failed to retrieve all users." , e);
+        }
     }
 
-
     public User findById(Integer id) {
-        return userMapper.findById(id);
+        try {
+            return userMapper.findById(id);
+        } catch (DataAccessException e){
+            System.err.println("findById error:" + e.getMessage());
+            throw new RuntimeException("Failed to retrieve user by ID: " + id, e);
+        }
     }
 
     public void update(Integer id, User user) {
-        userMapper.update(id, user);
+        try {
+            userMapper.update(id, user);
+        } catch (DataAccessException e) {
+            System.err.println("update error: " + e.getMessage());
+            throw new RuntimeException("Failed to update user with ID: " + id, e);
+        }
     }
-
     public void insert(User user) {
-        userMapper.insert(user);
+        try {
+            userMapper.insert(user);
+        } catch (DataAccessException e) {
+            System.err.println("insert error: " + e.getMessage());
+            throw new RuntimeException("Failed to insert user.", e);
+        }
     }
 }

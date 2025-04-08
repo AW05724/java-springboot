@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
+import com.example.demo.exception.ApplicationException;
 import com.example.demo.repository.mapper.User;
 import com.example.demo.repository.mapper.UserMapper;
 
@@ -21,7 +22,7 @@ public class UserRepositoryImpl implements UserRepository {
             return userMapper.findAll();
         } catch (DataAccessException e){
             System.err.println("findAll error:" + e.getMessage());
-            throw new RuntimeException("failed to retrieve all users." , e);
+            throw new ApplicationException("failed to retrieve all users." , e);
         }
     }
 
@@ -30,7 +31,7 @@ public class UserRepositoryImpl implements UserRepository {
             return userMapper.findById(id);
         } catch (DataAccessException e){
             System.err.println("findById error:" + e.getMessage());
-            throw new RuntimeException("Failed to retrieve user by ID: " + id, e);
+            throw new ApplicationException("Failed to retrieve user by ID: " + id, e);
         }
     }
 
@@ -39,7 +40,7 @@ public class UserRepositoryImpl implements UserRepository {
             userMapper.update(id, user);
         } catch (DataAccessException e) {
             System.err.println("update error: " + e.getMessage());
-            throw new RuntimeException("Failed to update user with ID: " + id, e);
+            throw new ApplicationException("Failed to update user with ID: " + id, e);
         }
     }
     public void insert(User user) {
@@ -47,7 +48,7 @@ public class UserRepositoryImpl implements UserRepository {
             userMapper.insert(user);
         } catch (DataAccessException e) {
             System.err.println("insert error: " + e.getMessage());
-            throw new RuntimeException("Failed to insert user.", e);
+            throw new ApplicationException("Failed to insert user.", e);
         }
     }
 }

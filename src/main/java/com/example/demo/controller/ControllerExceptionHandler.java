@@ -17,8 +17,8 @@ public class ControllerExceptionHandler {
     public ResponseEntity<Errors> unhandledException(Exception ex) {
         log.error("unhandled Exception:" + ex.getMessage(), ex);
         return ResponseEntity
-        .status(HttpStatus.INTERNAL_SERVER_ERROR)
-        .body(Errors.INTERNAL_SERVER_ERROR);
+                .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(Errors.INTERNAL_SERVER_ERROR);
     }
 
     @ExceptionHandler({ ApplicationException.class })

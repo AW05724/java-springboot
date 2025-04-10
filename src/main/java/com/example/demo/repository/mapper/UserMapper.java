@@ -9,6 +9,6 @@ import java.util.List;
 public interface UserMapper {
     List<User> findAll();
     User findById(int id);
-    void update(@Param("id") int id, @Param("user") User user);
+    int update(@Param("id") int id, @Param("user") User user);
     void insert(@Param("user")User user);
 } 

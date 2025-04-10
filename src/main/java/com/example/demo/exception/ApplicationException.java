@@ -17,11 +17,6 @@ public class ApplicationException extends RuntimeException {
         super(error.getMessage(), cause);
         this.error = error;
     }
-    public ApplicationException(String message, DataAccessException cause) {
-        super(message, cause);
-        this.error = null; // error は設定しない
-    }
-
 
     public Errors getError() {
         return error;

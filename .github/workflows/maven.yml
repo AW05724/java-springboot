@@ -16,6 +16,10 @@ on:
 
 permissions:
   contents: read
+  packages: read
+  security-events: write
+  actions: read
+  dependency-submission: write
 
 jobs:
   build:

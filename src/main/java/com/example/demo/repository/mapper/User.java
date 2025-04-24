@@ -2,11 +2,11 @@ package com.example.demo.repository.mapper;
 
 import java.time.LocalDateTime;
 
-import lombok.Builder;
-import lombok.Getter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Getter
-@Builder
+@NoArgsConstructor
+@Data
 public class User {
     private int id;
     private String mail;

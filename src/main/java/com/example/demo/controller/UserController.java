@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,37 +32,40 @@ public class UserController {
     }
 
     @PostMapping("/users/update")
-    public String updateUser(
-            @RequestParam("id") Integer id,
+    public ResponseEntity<String> updateUser(
+            @RequestParam("id") int id,
             @RequestHeader("mail") String mail,
             @RequestHeader("password") String password,
             @RequestHeader("roles") String roles,
-            @RequestHeader("enabled") String enabled
+            @RequestHeader("enabled") boolean enabled
     ) {
-        User user = new User();
-        user.setMail(mail);
-        user.setPassword(password);
-        user.setRoles(roles);
-        user.setEnabled(Boolean.parseBoolean(enabled));
-        user.setLastLogined(LocalDateTime.now());
+        User user = User.builder()
+                .mail(mail)
+                .password(password)
+                .roles(roles)
+                .enabled(enabled)
+                .lastLogined(LocalDateTime.now())
+                .build();
         userRepository.update(id, user);
-        return "User updated successfully";
+        return ResponseEntity.ok("User updated successfully");
     }
 
     @PostMapping("/users/create")
-    public String createUser(
+    public ResponseEntity<String> createUser(
             @RequestHeader("mail") String mail,
             @RequestHeader("password") String password,
             @RequestHeader("roles") String roles,
-            @RequestHeader("enabled") String enabled
+            @RequestHeader("enabled") boolean enabled
     ) {
-        User user = new User();
-        user.setMail(mail);
-        user.setPassword(password);
-        user.setRoles(roles);
-        user.setEnabled(Boolean.parseBoolean(enabled));
-        user.setCreated(LocalDateTime.now());
+        User user = User.builder()
+                .mail(mail)
+                .password(password)
+                .roles(roles)
+                .enabled(enabled)
+                .created(LocalDateTime.now())
+                .lastLogined(LocalDateTime.now())
+                .build();
         userRepository.insert(user);
-        return "User created successfully";
+        return ResponseEntity.ok("User created successfully");
     }
 }
